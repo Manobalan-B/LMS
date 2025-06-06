@@ -19,8 +19,8 @@ public class NotificationService {
         return notificationRepository.findByUserid(id);
     }
 
-    public void sendNotification(int id, String message, String type) {
-        Notification notification = new Notification(message, type,id);
+    public void sendNotification(int id, String message, String type,int courseId) {
+        Notification notification = new Notification(message, type,id,courseId);
         notificationRepository.save(notification);
     }
 }

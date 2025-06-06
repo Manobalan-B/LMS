@@ -21,6 +21,17 @@ public class Notification {
     @Column(name = "type", length = 50) // e.g., "Assignment Due", "New Course", "Announcement"
     private String Type;
 
+    @Column(name = "related_id") // or call it courseId if you prefer
+    private Integer relatedId;
+
+    public Integer getRelatedId() {
+        return relatedId;
+    }
+
+    public void setRelatedId(Integer relatedId) {
+        this.relatedId = relatedId;
+    }
+
     public Long getNotificationId() {
         return NotificationId;
     }
@@ -53,10 +64,11 @@ public class Notification {
         return Type;
     }
 
-    public Notification(String message, String type, int id) {
+    public Notification(String message, String type, int id,int courseId) {
         this.Message=message;
         this.Type=type;
         this.userid = id;
+        this.relatedId=courseId;
     }
 
     public Notification(){

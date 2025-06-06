@@ -104,7 +104,8 @@ public class InstructorController {
 			notificationService.sendNotification(
 					user.getId(),
 					"New Course has been Added. Enroll Now!!",
-					"New Course"
+					"New Course",
+					course.getId()
 			);
 		}
 	    
@@ -176,7 +177,8 @@ public class InstructorController {
 			notificationService.sendNotification(
 					user.getId(),
 					Message,
-					"Course Updation"
+					"Course Updation",
+					course.getId()
 			);
 		}
 
@@ -194,7 +196,8 @@ public class InstructorController {
 			notificationService.sendNotification(
 					user.getId(),
 					Message,
-					"Course Deletion"
+					"Course Deletion",
+					course.getId()
 			);
 		}
 		courseService.deleteCourse(id);

@@ -66,7 +66,18 @@
 <div th:if="${!notifications.isEmpty()}" th:each="note : ${notifications}" class="notification-card">
   <div>
     <!--        <div class="notification-title" th:text="${note.type}">[TYPE]</div>-->
-    <div class="notification-desc" th:text="'Hey ' + ${name} + ' ' + ${note.message}">[MESSAGE]</div>
+    <div class="notification-desc">
+      Hey <span th:text="${name}"></span>
+      <span th:text="${note.message}"></span>
+
+      <!-- Conditional link -->
+      <a th:if="${note.type == 'Course Updation'}"
+         th:href="@{'/course/' + ${note.relatedId}}"
+         style="margin-left:10px; color:blue; text-decoration:underline;">
+        Go to Course Details
+      </a>
+    </div>
+
   </div>
 </div>
 
